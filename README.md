@@ -6,7 +6,13 @@
   I use an arduino with an electromagnet to influence the clock to maintain the correct time within
   less than a second relative to a Adafruit Ultimate GPS Breakout GPS.. Typically, the clock drifts within a 100 millisecond range over weeks.
   
-https://www.flickr.com/photos/88117211@N00/33824316033/in/photolist-TwWsJD
+Picture of clock 
+
+https://www.flickr.com/photos/88117211@N00/33824316033/
+
+Picture of controller
+
+https://www.flickr.com/photos/88117211@N00/51009642002/
 
 Statistics graph:
 
