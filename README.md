@@ -7,3 +7,7 @@
   less than a second relative to a Adafruit Ultimate GPS Breakout GPS.. Typically, the clock drifts within a 100 millisecond range over weeks.
   
 https://www.flickr.com/photos/88117211@N00/33824316033/in/photolist-TwWsJD
+
+Statistics graph:
+
+https://www.flickr.com/photos/88117211@N00/51009567372/
