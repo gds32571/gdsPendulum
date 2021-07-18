@@ -54,10 +54,11 @@
 
   20 Apr 2020: Increased error limit to <2   see below in C O N T R O L
 
+   16 Jul 2021 - set up rp1 to compile and upload the program. Incrementing version number to test. 
 
  ************************************/
 
-#define VERSION 1012
+#define VERSION 1013
 #include <Wire.h> // Enable this line if using Arduino Uno, Mega, etc. Is I2C with addresses
 // see https://www.arduino.cc/en/Reference/Wire
 #include <Adafruit_GFX.h>
@@ -350,8 +351,10 @@ void loop() {
   }
   movement = movement + 1 ;
 
+// 12 hour clock or 24 hour clock
   if (ch > 12) {
-    xch = ch - 12;
+//    xch = ch - 12;
+    xch = ch - 0;
   } else {
     xch = ch;
   }
