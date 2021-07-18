@@ -19,7 +19,7 @@ Statistics graph:
 https://www.flickr.com/photos/88117211@N00/51009567372/
 
 
-###16 Jul 2021
+### 16 Jul 2021
 
 Removed apt-get of arduino and downloaded version from arduino people. This lets me compile and upload on the actual rp1. I am happy about that!
  
