@@ -54,10 +54,11 @@
 
   20 Apr 2020: Increased error limit to <2   see below in C O N T R O L
 
-   16 Jul 2021 - set up rp1 to compile and upload the program. Incrementing version number to test. 
-   changed to 24 hour clock
+   16 Jul 2021 - set up rp1 to compile and upload the program. 
+    Incrementing version number to test. 
+    Changed to 24 hour clock near line 359
 
-   ************************************/
+ ************************************/
 
 #define VERSION 1013
 #include <Wire.h> // Enable this line if using Arduino Uno, Mega, etc. Is I2C with addresses

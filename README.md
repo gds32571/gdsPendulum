@@ -27,4 +27,4 @@ Goto  https://www.arduino.cc/en/software  and download the ARM version, maybe
 
 https://downloads.arduino.cc/arduino-nightly-linuxarm.tar.xz
 
-Note to self: remember to pushit from dell2 in \\\rp1\pi\Arduino\sketchbook\gdsPendulum folder, not from rp1.
+Note to self: remember to pushit from dell2 in //rp1/pi/Arduino/sketchbook/gdsPendulum folder, not from rp1.
