@@ -17,3 +17,5 @@ https://www.flickr.com/photos/88117211@N00/51009642002/
 Statistics graph:
 
 https://www.flickr.com/photos/88117211@N00/51009567372/
+
+note to self: remember to pushit from dell2 in \\rp1\pi folder, not from rp1.
