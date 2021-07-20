@@ -55,12 +55,15 @@
   20 Apr 2020: Increased error limit to <2   see below in C O N T R O L
 
    16 Jul 2021 - set up rp1 to compile and upload the program. 
-    Incrementing version number to test. 
+    Incrementing version number to test v 1013. 
     Changed to 24 hour clock near line 359
+
+   19 Jul 2021 - v1014
+     fixed bug in chime counts (because its a 24 hour clock now.)
 
  ************************************/
 
-#define VERSION 1013
+#define VERSION 1014
 #include <Wire.h> // Enable this line if using Arduino Uno, Mega, etc. Is I2C with addresses
 // see https://www.arduino.cc/en/Reference/Wire
 #include <Adafruit_GFX.h>
@@ -1072,8 +1075,13 @@ void play00() {
 
 void hourchime() {
   // one per each hour
+  byte mycnt=xch;
+  if (mycnt>12){
+     mycnt -= 12;
+  }
   byte ptr = 16;
-  for (int i = 0; i < xch; i++) {
+//  for (int i = 0; i < xch; i++) {
+  for (int i = 0; i < mycnt; i++) {
     set[0][ptr] = 52;
     set[1][ptr] = 2000;
     ptr ++;
