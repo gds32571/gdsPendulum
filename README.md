@@ -35,3 +35,4 @@ Also installed git on HP4. Context menu for the q:\ folder has an "open git bash
 then, in MINGW64 window, enter ./pushit
 
 Note to self: remember to pushit from dell2 (or HP4) in \\\rp1\pi\Arduino\sketchbook\gdsPendulum folder, not from rp1.
+
