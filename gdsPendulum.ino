@@ -61,9 +61,16 @@
    19 Jul 2021 - v1014
      fixed bug in chime counts (because its a 24 hour clock now.)
 
+   21 Jul 2021 - v1015
+      In case we miss a 1PPS signal from the GPS, we are
+     able to adjust secounds counter and GPS seconds with 'g' command
+
+   28 Oct 2024 - v1200
+      letting clock auto increment GPS clock if it thinks an error has happened
+   
  ************************************/
 
-#define VERSION 1014
+#define VERSION 1200
 #include <Wire.h> // Enable this line if using Arduino Uno, Mega, etc. Is I2C with addresses
 // see https://www.arduino.cc/en/Reference/Wire
 #include <Adafruit_GFX.h>
@@ -112,6 +119,7 @@ int arrPeriod[ARRSIZE];
 int blocked;
 int delta;
 signed int d_off = 0;
+signed int g_off = 0;
 int on_beats;
 long tot_on_beats;
 long counts = 0;
@@ -440,6 +448,15 @@ void loop() {
     gs = gs - 60;
     gm = gm + 1;
     chime_check = true;
+
+// GPS clock error fix
+    if (error == 1 and (gm % 5)){ 
+       error = 0;
+       gs = gs + 1;
+
+       Serial.print("\n GPS clock error, seconds incremented \n");
+
+    }
     if (gm > 59) {
       gm = 0;
       gh = gh + 1;
@@ -710,7 +727,7 @@ void loop() {
 
   checknote();
 
-  // wait until 2 miliseconds before center
+  // wait until 2 milliseconds before center
   while (millis() < center - 2) {
     checknote();
   }
@@ -814,6 +831,40 @@ void process_string() {
       }
       Serial.print("delta offset ");
       Serial.println(d_off);
+      inputString = "";
+      stringComplete = false;
+    }
+  }
+  else if (inputString.substring(0, 1) == "g") {
+    if (inputString.length() > 2) {
+      if (inputString.substring(1, 1) == "-") {
+         g_off = inputString.substring(2, 7).toInt();
+         g_off = g_off * -1;
+      }else{
+         g_off = inputString.substring(1, 7).toInt();
+      }
+      gs = gs + g_off;
+      secctr = secctr + g_off;
+      Serial.print("GPS adjusted ");
+      Serial.println(g_off);
+      inputString = "";
+      stringComplete = false;
+    }
+  }
+  else if (inputString.substring(0, 1) == "h") {
+    if (inputString.length() > 2) {
+      if (inputString.substring(1, 1) == "-") {
+         g_off = inputString.substring(2, 7).toInt();
+         g_off = g_off * -1;
+      }else{
+         g_off = inputString.substring(1, 7).toInt();
+      }
+      gs = gs + g_off;
+      secctr = secctr + g_off;
+      cs = cs + g_off;
+      
+      Serial.print("Whole clock adjusted ");
+      Serial.println(g_off);
       inputString = "";
       stringComplete = false;
     }
