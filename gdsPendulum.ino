@@ -450,7 +450,7 @@ void loop() {
     chime_check = true;
 
 // GPS clock error fix
-    if (error == 1 && ((gm % 5) == 0)){ 
+    if ((error == 1) && ((gm % 5) == 0)){ 
        error = 0;
        gs = gs + 1;
 
