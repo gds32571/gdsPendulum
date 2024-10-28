@@ -450,13 +450,14 @@ void loop() {
     chime_check = true;
 
 // GPS clock error fix
-    if (error == 1 and (gm % 5)){ 
+    if (error == 1 && ((gm % 5) == 0)){ 
        error = 0;
        gs = gs + 1;
 
        Serial.print("\n GPS clock error, seconds incremented \n");
 
     }
+    
     if (gm > 59) {
       gm = 0;
       gh = gh + 1;
