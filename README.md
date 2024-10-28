@@ -29,8 +29,9 @@ https://downloads.arduino.cc/arduino-nightly-linuxarm.tar.xz
 
 ### 28 Oct 2024
 
-Added code to automatiucall update GPS seconds by one if ann error is detected.
-Also installed git on HP4. Context meny for the q:\ folder has a open git bash here
-then ./pushit
+Added code to automatically update GPS seconds by one if ann error is detected.
 
-Note to self: remember to pushit from dell2 in \\\rp1\pi\Arduino\sketchbook\gdsPendulum folder, not from rp1.
+Also installed git on HP4. Context menu for the q:\ folder has an "open git bash here" command
+then, in MINGW64 window, enter ./pushit
+
+Note to self: remember to pushit from dell2 (or HP4) in \\\rp1\pi\Arduino\sketchbook\gdsPendulum folder, not from rp1.
