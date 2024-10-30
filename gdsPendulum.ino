@@ -449,14 +449,16 @@ void loop() {
     gm = gm + 1;
     chime_check = true;
 
+/*
 // GPS clock error fix
     if ((error == 1) && ((gm % 5) == 0)){ 
-       error = 0;
+       //error = 0;
        gs = gs + 1;
 
        Serial.print("\n GPS clock error, seconds incremented \n");
 
     }
+ */
     
     if (gm > 59) {
       gm = 0;
@@ -633,6 +635,17 @@ void loop() {
       matrix.writeDisplay();
     } else {
       digitalWrite(ledERR, HIGH);
+
+
+    // GPS clock error fix
+    if ((error == 1)){   
+      // && ((gm % 5) == 0)){ 
+       error = 0;
+       gs = gs + 1;
+       Serial.print("\n GPS clock error, seconds incremented \n");
+
+    }
+
     }
 
  if (vb == 'n') {
